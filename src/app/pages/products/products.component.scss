@@ -1,0 +1,148 @@
+@import "../../../styles/mixins.scss";
+
+.product-list {
+  &__add-button {
+    padding: 12px 20px;
+  }
+
+  &__search-container {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-direction: column;
+
+    @include medium() {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__search-input {
+    border: 0.5px solid #dee2e6;
+    padding: 12px 8px;
+    &--rounded {
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &__table-wrapper {
+    background-color: var(--background-color);
+    padding: 16px 16px 100px 16px;
+    margin-top: 16px;
+    overflow: auto;
+    min-height: 280px;
+  }
+
+  &__table {
+    min-width: 500px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  &__table-row {
+    border-bottom: 2px solid #dee2e6;
+    height: 48px;
+  }
+
+  &__table-head {
+    background-color: #f9fafc;
+    height: 60px;
+    text-align: left;
+  }
+
+  &__table-data {
+    max-width: 200px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  &__action-button--delete {
+    background-color: #e97b7b;
+  }
+
+  &__product-logo {
+    width: 50px;
+  }
+}
+
+td:last-child,
+th:last-child {
+  width: 130px;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+  &__dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--dark-grey-color);
+    border-radius: 50%;
+  }
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-options {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  z-index: 10;
+}
+
+.menu-option {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.menu-option:hover {
+  background-color: #f0f0f0;
+}
+
+.menu-option--edit {
+  color: var(--blue-color);
+}
+
+.menu-option--delete {
+  color: #dc3545;
+}
+
+.menu-container.active .menu-options {
+  display: flex;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  &__button {
+    padding: 14px 50px;
+  }
+}

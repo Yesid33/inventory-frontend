@@ -1,0 +1,179 @@
+<section class="registration">
+  <div class="registration__container">
+    <div>
+      <button class="button-ghost" routerLink="/">&lt; Atrás</button>
+    </div>
+    <h1 class="registration__title">Formulario de Registro</h1>
+    <hr class="registration__divider" />
+    <form
+      class="registration__form"
+      [formGroup]="form"
+      (ngSubmit)="onSaveForm()"
+    >
+      <div class="registration__container-field">
+        <div class="registration__field">
+          <label class="registration__label" for="id">ID</label>
+          <input
+            class="registration__input registration__input--rounded"
+            type="text"
+            id="id"
+            formControlName="id"
+          />
+          @if (productId?.invalid && (productId?.dirty || productId?.touched)) {
+          <div class="registration__error">
+            @for (errorMessage of messagesErrors; track errorMessage) {
+            @if(productId?.hasError(errorMessage.type)) {
+            <div class="registration__error-message">
+              {{ errorMessage.message.replace(errorMessage.type, productId?.errors?.[errorMessage.type].requiredLength) }}
+            </div>
+            } }
+          </div>
+          }
+        </div>
+
+        <div class="registration__field">
+          <label class="registration__label" for="name">Nombre</label>
+          <input
+            class="registration__input registration__input--rounded"
+            type="text"
+            id="name"
+            formControlName="name"
+          />
+          @if (name?.invalid && (name?.dirty || name?.touched)) {
+          <div class="registration__error">
+            @for (errorMessage of messagesErrors; track errorMessage) {
+            @if(name?.hasError(errorMessage.type)) {
+            <div class="registration__error-message">
+              {{ errorMessage.message.replace(errorMessage.type, name?.errors?.[errorMessage.type].requiredLength) }}
+            </div>
+            } }
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="registration__container-field">
+        <div class="registration__field">
+          <label class="registration__label" for="description"
+            >Descripción</label
+          >
+          <input
+            class="registration__input registration__input--rounded"
+            type="text"
+            id="description"
+            formControlName="description"
+          />
+          @if (description?.invalid && (description?.dirty ||
+          description?.touched)) {
+          <div class="registration__error">
+            @for (errorMessage of messagesErrors; track errorMessage) {
+            @if(description?.hasError(errorMessage.type)) {
+            <div class="registration__error-message">
+              {{ errorMessage.message.replace(errorMessage.type, description?.errors?.[errorMessage.type].requiredLength) }}
+            </div>
+            } }
+          </div>
+          }
+        </div>
+
+        <div class="registration__field">
+          <label class="registration__label" for="logo">Logo</label>
+          <input
+            class="registration__input registration__input--rounded"
+            type="url"
+            id="logo"
+            formControlName="logo"
+          />
+          @if (logo?.invalid && (logo?.dirty || logo?.touched)) {
+          <div class="registration__error">
+            @for (errorMessage of messagesErrors; track errorMessage) {
+            @if(logo?.hasError(errorMessage.type)) {
+            <div class="registration__error-message">
+              {{ errorMessage.message.replace(errorMessage.type, logo?.errors?.[errorMessage.type].requiredLength) }}
+            </div>
+            } }
+          </div>
+          }
+        </div>
+      </div>
+      <div class="registration__container-field">
+        <div class="registration__field">
+          <label class="registration__label" for="date_release"
+            >Fecha Liberación</label
+          >
+          <input
+            class="registration__input registration__input--rounded"
+            type="date"
+            id="date_release"
+            formControlName="date_release"
+          />
+          @if (dateRelease?.invalid && (dateRelease?.dirty ||
+          dateRelease?.touched)) {
+          <div class="registration__error">
+            @for (errorMessage of messagesErrors; track errorMessage) {
+            @if(dateRelease?.hasError(errorMessage.type)) {
+            <div class="registration__error-message">
+              {{ errorMessage.message.replace(errorMessage.type, dateRelease?.errors?.[errorMessage.type].requiredLength) }}
+            </div>
+            } }
+          </div>
+          }
+        </div>
+
+        <div class="registration__field">
+          <label class="registration__label" for="date_revision"
+            >Fecha Revisión</label
+          >
+          <input
+            class="registration__input registration__input--rounded"
+            type="date"
+            id="date_revision"
+            formControlName="date_revision"
+          />
+        </div>
+      </div>
+      <div class="registration__actions">
+        <button
+          class="button-secondary registration__button"
+          type="reset"
+          title="Reiniciar"
+          [disabled]="!form.touched || loading"
+        >
+          Reiniciar
+        </button>
+        <button
+          class="button-primary registration__button"
+          type="submit"
+          title="Enviar"
+          [disabled]="form.invalid || loading"
+        >
+          @if (!loading) { Enviar } @else {
+          <div class="registration__loading">
+            Enviando...
+            <div class="registration__spinner"></div>
+          </div>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+@if (showMessage) {
+<app-modal>
+  <div>
+    <h4 style="font-weight: 600; text-align: center">
+      {{ messageConfirmCreateUpdate }}
+    </h4>
+    <div class="actions">
+      <button
+        class="button-primary actions__button"
+        type="button"
+        title="Confirmar"
+        (click)="showMessage = false"
+      >
+        Continuar
+      </button>
+    </div>
+  </div>
+</app-modal>
+}

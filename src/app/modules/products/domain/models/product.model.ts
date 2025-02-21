@@ -5,4 +5,5 @@ export interface Product {
   logo: string;
   date_release: string | Date;
   date_revision: string | Date;
+  stock: number;
 }

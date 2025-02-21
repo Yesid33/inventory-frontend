@@ -22,6 +22,7 @@
         <tr class="product-list__table-row">
           <th class="product-list__table-header">Logo</th>
           <th class="product-list__table-header">Nombre del producto</th>
+          <th class="product-list__table-header">Cantidad</th>
           <th class="product-list__table-header">
             Descripción
             <app-tooltip
@@ -57,6 +58,7 @@
             />
           </td>
           <td class="product-list__table-data">{{ product.name }}</td>
+          <td class="product-list__table-data">{{ product.stock }}</td>
           <td class="product-list__table-data">{{ product.description }}</td>
           <td class="product-list__table-data">
             {{ product.date_release | date : "dd/MM/yyyy" }}

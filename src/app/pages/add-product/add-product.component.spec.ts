@@ -48,6 +48,7 @@ describe('AddProductComponent', () => {
       date_revision: new Date(),
       description: 'Description Item 1',
       logo: (Math.random() * 100).toString(),
+      stock: 200,
     };
     productResponse = {
       message: 'Product created successfully',
@@ -87,6 +88,7 @@ describe('AddProductComponent', () => {
       'logo',
       'date_release',
       'date_revision',
+      'stock',
     ];
 
     expect(Object.keys(component.form.getRawValue())).toEqual(keys);

@@ -108,6 +108,10 @@ export class AddProductComponent implements OnInit, OnDestroy {
     return this.form.get('logo');
   }
 
+  get stock() {
+    return this.form.get('stock');
+  }
+
   get dateRelease() {
     return this.form.get('date_release');
   }
@@ -146,6 +150,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
         { value: null, disabled: true },
         Validators.required
       ),
+      stock: new FormControl(null, [Validators.required]),
     });
   }
 

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class GetProducts {
   constructor(
     @Inject('IProductRepository')
-    private productRepository: ProductRepository
+    private readonly productRepository: ProductRepository
   ) {}
 
   execute(): Observable<Product[]> {

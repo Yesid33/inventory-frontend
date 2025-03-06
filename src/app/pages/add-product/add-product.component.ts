@@ -40,11 +40,11 @@ export class AddProductComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    private formBuilder: FormBuilder,
-    private createProduct: CreateProduct,
-    private editProduct: EditProduct,
-    private validateIfExistProduct: ValidateIfExistProduct,
-    private router: Router
+    private readonly formBuilder: FormBuilder,
+    private readonly createProduct: CreateProduct,
+    private readonly editProduct: EditProduct,
+    private readonly validateIfExistProduct: ValidateIfExistProduct,
+    private readonly router: Router
   ) {
     const productToEdit = this.router.getCurrentNavigation()?.extras?.state;
 

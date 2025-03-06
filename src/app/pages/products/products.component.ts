@@ -38,9 +38,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    private getProducts: GetProducts,
-    private deleteProduct: DeleteProduct,
-    private router: Router
+    private readonly getProducts: GetProducts,
+    private readonly deleteProduct: DeleteProduct,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
